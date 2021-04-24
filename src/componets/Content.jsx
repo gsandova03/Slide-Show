@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+//Componente de contenido
 export default function Contenido({title, text}){
     return(
         <div className="diapositiva">

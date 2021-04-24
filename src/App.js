@@ -6,6 +6,7 @@ import Diapositivas from './componets/Diapositivas';
 function App() {
   return (
     <div className="App">
+      {/* llamada de los componentes */}
       <Header />
       <Diapositivas />
     </div>

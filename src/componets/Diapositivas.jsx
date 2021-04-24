@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import Content from './Content'
 
+
+//Se declara el array con los mensajes
 const diapositivas = [
     {
         title:"Todays workout plan",
@@ -26,25 +28,29 @@ const diapositivas = [
 
 export default function Diapositivas(){
 
+    //definir dos hooks para evaluar las posiciones del array
     const [numDiapositiva, updateDiapositiva] = useState(0)
     const [num, updateNum] = useState(0)
 
     return(
         <div className="container">
             <div className="botones">
-                <a href="#" onClick={()=>{
+                {/* botonones para cambiar los estados del hook */}
+                <button href="#" onClick={()=>{
                    updateDiapositiva(0);
                    updateNum(0); 
-                }}>Restart</a>
-                <a href="#" onClick={()=>{
+                }} disabled={numDiapositiva == 0} >Restart</button>
+                <button href="#" onClick={()=>{
                    updateDiapositiva(numDiapositiva - 1);
                    updateNum(num - 1); 
-                }}>Prev</a>
-                <a href="#" onClick={()=>{
+                }} disabled={numDiapositiva == 0} >Prev</button>
+                <button href="#" onClick={()=>{
                    updateDiapositiva(numDiapositiva + 1);
                    updateNum(num + 1); 
-                }}>Next</a>
+                }} disabled={numDiapositiva == 4} >Next</button>
             </div>
+
+            {/* llamar al componente de Conten para renderizar por pantalla */}
             <div className="contenido">
                 <Content 
                     title={diapositivas[num].title}
